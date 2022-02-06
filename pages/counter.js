@@ -11,7 +11,7 @@ export default function Counter() {
             <h1>The current count is {count}</h1>
             <button onClick={() => setCount(count + 1)}>Click me!</button>
             <button onClick={() => setOn(!on)}>
-                The nuclear reactor is {on ? 'activated' : 'deactivated'}
+                Button is {on ? 'activated' : 'deactivated'}
             </button>
         </Container>
     )
