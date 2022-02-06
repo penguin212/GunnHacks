@@ -1,10 +1,21 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Container from '../components/Container';
 
 
 export default function Todos() {
     const [todos, setTodos] = useState([]);
     const [text, setText] = useState('');
+
+    useEffect(() => {
+        const savedTodos = localStorage.getItem('todos');
+        if (!savedTodos) return;
+        setTodos(JSON.parse(savedTodos));
+    }, []);
+
+    useEffect(() => {
+        console.log('Called!')
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     function addTodo() {
         if (text === '') return;
